@@ -6,6 +6,12 @@ fn main() {
 }
 `;
 
-const client = new Client({ userAgent: "playrlo-format-example/0.0.0" });
-const response = await client.compile(code, { channel: "nightly" });
-console.log(response);
+const client = new Client({ userAgent: "playrlo-compile-example/0.0.0" });
+const { code: result, stderr } = await client.compile(code, {
+  channel: "nightly",
+});
+console.log(`Result: ${result}`);
+
+if (stderr) {
+  console.log(`Got stderr: ${stderr}`);
+}

@@ -1,3 +1,11 @@
+export type CrateInformation = {
+  name: string;
+  version: string;
+  id: string;
+};
+
+export type Tool = "rustfmt" | "clippy" | "miri";
+
 export type CompileTarget =
   | "asm"
   | "llvm-ir"
